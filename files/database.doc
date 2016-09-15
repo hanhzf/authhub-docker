@@ -1,0 +1,21 @@
+* create database and db user
+
+    create database authhub;
+    create user authhubadm with password 'zhu88jie';
+    alter database authhub owner to authhubadm;
+
+* make sure your container have access to the database url, config pg_hba.conf
+
+    host    all             all             172.16.110.0/24         md5
+
+* restart your database server
+
+* create database using alembic script
+
+    cd /opt/authhub/authhub/authhub/db/migration
+    vim alembic.ini:
+
+        sqlalchemy.url =postgresql://authhubadm:zhu88jie@10.70.44.118:5432/authhub
+
+    alembic revision --autogenerate
+    alembic upgrade head

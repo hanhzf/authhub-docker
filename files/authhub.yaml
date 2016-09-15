@@ -1,0 +1,9 @@
+memcache:
+  - 127.0.0.1:11211
+postgres:
+  host: 127.0.0.1
+  passwd: zhu88jie
+log:
+  level: debug
+  verbose: True
+ 
